@@ -17,5 +17,5 @@
 .byebug_history
 
 
-#Ignore database.yml as it contains sensitive data
+# Ignore database.yml as it contains sensitive data
 /config/database.yml
