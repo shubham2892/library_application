@@ -19,3 +19,6 @@
 
 # Ignore database.yml as it contains sensitive data
 /config/database.yml
+
+# Ignore .idea file
+/.idea/*
