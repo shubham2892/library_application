@@ -14,7 +14,7 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password: jontygoyal1
+  password: 
   host: localhost
 
 development:
@@ -52,3 +52,4 @@ production:
   database: library_application_production
   username: library_application
   password: <%= ENV['LIBRARY_APPLICATION_DATABASE_PASSWORD'] %>
+

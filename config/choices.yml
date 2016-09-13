@@ -1,0 +1,10 @@
+building:
+  - D.H. Hill
+  - James. B. Hunt
+size:
+  - small
+  - medium
+  - large
+status:
+  - booked
+  - available
