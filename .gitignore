@@ -21,4 +21,4 @@
 /config/database.yml
 
 # Ignore .idea file
-/.idea/*
+.idea/*
