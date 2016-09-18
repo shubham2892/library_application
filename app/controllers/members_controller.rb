@@ -2,6 +2,7 @@ class MembersController < ApplicationController
   before_action :set_member, only: [:destroy, :show]
 
   def index
+
     @members = User.where.not(is_admin: true)
   end
 
@@ -11,7 +12,7 @@ class MembersController < ApplicationController
 
   def destroy
     @member.destroy
-    redirect_to action: 'index'
+    redirect_to action: 'index', notice:'Successfully Deleted'
   end
 
   private
