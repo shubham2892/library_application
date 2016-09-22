@@ -50,3 +50,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'coffee-script-source', '1.8.0'
 gem 'devise', '~> 4.2'
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
