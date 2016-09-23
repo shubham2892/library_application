@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  before_action :set_room, only: [:destroy, :show]
+  before_action :set_room, only: [:destroy, :show, :update]
 
   def index
     @rooms = Room.all
@@ -10,16 +10,48 @@ class RoomsController < ApplicationController
 
   end
 
+  def new
+    @room = Room.new
+  end
+
+  def create
+    @room = Room.new(room_params)
+
+    if @room.save
+      redirect_to @room
+    else
+      render :new
+    end
+  end
+
+  def update
+    if @room.update(room_params)
+      redirect_to @room
+    else
+      render :edit
+    end
+  end
+
+
+  def edit
+    @room = Room.find(params[:id])
+  end
+
   def destroy
     @room.destroy
-    redirect_to action: 'index', notice:'Successfully Deleted'
+    redirect_to action: 'index', notice: 'Successfully Deleted'
 
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
+# Use callbacks to share common setup or constraints between actions.
   def set_room
     @room = Room.find(params[:id])
+  end
+
+# Never trust parameters from the scary internet, only allow the white list through.
+  def room_params
+    params.require(:room).permit(:room_number,:building,:size)
   end
 
 end

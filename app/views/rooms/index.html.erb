@@ -11,7 +11,7 @@
   <tbody>
   <% @rooms.each do |room| %>
       <tr>
-        <td> <%= link_to room.room_name, room_path(room) %> </td>
+        <td> <%= link_to room.room_number, room_path(room) %> </td>
       </tr>
   <% end %>
   </tbody>
