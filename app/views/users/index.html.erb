@@ -1,0 +1,20 @@
+<p id="notice"><%= params[:notice] %></p>
+
+<h1>Admins</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th colspan="2"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @members.each do |member| %>
+      <tr>
+        <td> <%= link_to member.name, user_path(member) %> </td>
+      </tr>
+  <% end %>
+  <%= button_to "Create new users", new_path %>
+  </tbody>
+</table>

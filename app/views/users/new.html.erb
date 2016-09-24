@@ -1,0 +1,27 @@
+<%= form_for (@member) do |f| %>
+    <% if @member.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@member.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+          <ul>
+            <% @member.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name %><br>
+      <%= f.label :email %>
+      <%= f.text_field :email %><br>
+      <%= f.label :password %>
+      <%= f.text_field :password %>
+      <%= f.hidden_field :is_admin, :value => '1' %>
+      <%= f.hidden_field :is_preconfigured, :value => '0' %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

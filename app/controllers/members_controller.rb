@@ -12,7 +12,7 @@ class MembersController < ApplicationController
 
   def destroy
     @member.destroy
-    redirect_to action: 'index', notice:'Successfully Deleted'
+    redirect_to action: 'index', notice:'Admin successfully Deleted'
   end
 
   private

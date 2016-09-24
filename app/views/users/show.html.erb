@@ -1,0 +1,19 @@
+<H2>Admin Detail</H2>
+<table>
+  <thead>
+  <tr>
+    <th colspan="2"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+      <% @admin_detail.each do |admin| %>
+      <tr>
+        <td> <%= admin.name %> </td>
+        <td><%= admin.email %> </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Delete the Admin', user_path(@member), method: :delete, data: {confirm: 'Are you sure?'} %>
