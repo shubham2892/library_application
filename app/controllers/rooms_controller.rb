@@ -3,6 +3,9 @@ class RoomsController < ApplicationController
 
   def index
     @rooms = Room.all
+    @rooms = @rooms.where(size:params[:size]) if params.has_key?(:size)
+    @rooms = @rooms.where(building:params[:building]) if params.has_key?(:building)
+
   end
 
   def show

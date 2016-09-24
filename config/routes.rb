@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :members, only: [:index,:show,:destroy]
   resources :rooms
   root 'members#index'
-  
+
 end
