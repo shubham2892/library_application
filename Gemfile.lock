@@ -51,7 +51,7 @@ GEM
     coffee-script (2.4.1)
       coffee-script-source
       execjs
-    coffee-script-source (1.8.0)
+    coffee-script-source (1.10.0)
     concurrent-ruby (1.0.2)
     debug_inspector (0.0.2)
     devise (4.2.0)
@@ -181,7 +181,7 @@ DEPENDENCIES
   bcrypt-ruby (= 3.1.1.rc1)
   byebug
   coffee-rails (~> 4.2)
-  coffee-script-source (= 1.8.0)
+  coffee-script-source (~> 1.10)
   devise (~> 4.2)
   jbuilder (~> 2.5)
   jquery-rails
