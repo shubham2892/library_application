@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20160921062814) do
 
-  create_table "members", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "members", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20160921062814) do
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true, using: :btree
   end
 
-  create_table "reservations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "reservations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer  "room_id"
     t.integer  "user_id"
     t.datetime "created_at", null: false
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20160921062814) do
     t.index ["user_id"], name: "index_reservations_on_user_id", using: :btree
   end
 
-  create_table "rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer  "room_number"
     t.string   "building"
     t.string   "size"
@@ -49,15 +49,15 @@ ActiveRecord::Schema.define(version: 20160921062814) do
     t.datetime "updated_at",  null: false
   end
 
- # create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-  #  t.string   "email"
-   # t.string   "name"
-  #  t.string   "password"
-  #  t.boolean  "is_admin"
-  #  t.boolean  "is_preconfigured"
-  #  t.datetime "created_at",       null: false
-  #  t.datetime "updated_at",       null: false
- # end
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "email"
+    t.string   "name"
+    t.string   "password"
+    t.boolean  "is_admin"
+    t.boolean  "is_preconfigured"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   add_foreign_key "reservations", "rooms"
   add_foreign_key "reservations", "users"
