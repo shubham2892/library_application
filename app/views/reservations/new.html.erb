@@ -1,0 +1,27 @@
+<%= form_for (@reservation) do |f| %>
+    <% if @reservation.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+          <ul>
+            <% @reservation.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :date %>
+      <%= f.date_select :date, default: Date.today %><br>
+      <%= f.label :time %>
+      <%= f.time_select :time, {:minute_step => 30}, {:default => {:hour => 8, :minute => 0}} %><br>
+      <%= f.label :password %>
+      <%= f.text_field :password %>
+      <%= f.hidden_field :is_admin, :value => '1' %>
+      <%= f.hidden_field :is_preconfigured, :value => '0' %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
