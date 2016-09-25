@@ -51,3 +51,8 @@ gem 'coffee-script-source', '~> 1.10'
 gem 'devise', '~> 4.2'
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
+
+gem 'rails_12factor', group: :production
+gem 'pg'
+
+ruby '2.3.1'
