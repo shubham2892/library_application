@@ -8,7 +8,7 @@ class Room < ApplicationRecord
 
   has_many :reservations
   belongs_to :members
-  
+
   def set_defaults
     self.status = 'available'
   end

@@ -10,7 +10,6 @@ class RoomsController < ApplicationController
 
   def show
     @booking_history = Reservation.where(room: params[:id])
-
   end
 
 

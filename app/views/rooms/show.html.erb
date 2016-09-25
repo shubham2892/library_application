@@ -1,5 +1,23 @@
 
 
+<H2>Booking History</H2>
+<table>
+  <thead>
+  <tr>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @booking_history.each do |booking| %>
+      <tr>
+        <td> <%= booking.user %> </td>
+        <td><%= booking.timestamps %> </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
 
 Room No: <%= @room.room_number %> <br/>
 Building: <%= @room.building %> <br />
