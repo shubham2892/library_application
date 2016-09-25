@@ -3,8 +3,8 @@ class RoomsController < ApplicationController
 
   def index
     @rooms = Room.all
-    @rooms = @rooms.where(size:params[:size]) if params.has_key?(:size)
-    @rooms = @rooms.where(building:params[:building]) if params.has_key?(:building)
+    @rooms = @rooms.where(size: params[:size]) if params.has_key?(:size) && !params[:size].empty?
+    @rooms = @rooms.where(building: params[:building]) if params.has_key?(:building) && !params[:size].empty?
 
   end
 
@@ -13,9 +13,20 @@ class RoomsController < ApplicationController
 
   end
 
+
   def new
     @room = Room.new
   end
+
+  def search
+    building = params[:building]
+    size = params[:size]
+
+
+    puts building, size
+    redirect_to action: index, building: building, size: "Asdasd"
+  end
+
 
   def create
     @room = Room.new(room_params)
@@ -54,7 +65,7 @@ class RoomsController < ApplicationController
 
 # Never trust parameters from the scary internet, only allow the white list through.
   def room_params
-    params.require(:room).permit(:room_number,:building,:size)
+    params.require(:room).permit(:room_number, :building, :size)
   end
 
 end
