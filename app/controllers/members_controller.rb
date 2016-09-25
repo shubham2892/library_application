@@ -1,17 +1,6 @@
 class MembersController < ApplicationController
   before_action :set_member, only: [:destroy, :show]
-
-  /*def indexMem
-
-    @members = Member.where.not(is_admin: true)
-  end
-
-  def indexAdmin
-
-    @members = Member.where(is_admin: true)
-    #@user=User.all.order('created_at DESC')
-  end*/
-
+  
   def index
     @members = Member.all
   end
