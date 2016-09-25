@@ -18,16 +18,7 @@ class RoomsController < ApplicationController
     @room = Room.new
   end
 
-  def search
-    building = params[:building]
-    size = params[:size]
-
-
-    puts building, size
-    redirect_to action: index, building: building, size: "Asdasd"
-  end
-
-
+  
   def create
     @room = Room.new(room_params)
 
