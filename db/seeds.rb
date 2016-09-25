@@ -6,4 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-admin1 = Member.create :name => "admin", :email => 'admin@mail.com', :password => "password", :is_admin => true
+admin1 = Member.create :name => "admin", :email => 'admin@mail.com', :password => "password", :is_admin => true, :is_preconfigured => true
+user1 = Member.create :name => "user1", :email => 'user1@mail.com', :password => "user1password"
+user2 = Member.create :name => "user2", :email => 'user2@mail.com', :password => "user2password"
+user3 = Member.create :name => "user3", :email => 'user3@mail.com', :password => "user3password"

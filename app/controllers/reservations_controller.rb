@@ -1,4 +1,4 @@
-class ReservationController < ApplicationController
+class ReservationsController < ApplicationController
   def new
     @reservation = Reservation.new
   end
@@ -7,27 +7,32 @@ class ReservationController < ApplicationController
     @reservations = Reservation.where(user: current_user.id)
   end
   def create
-    if (@reservation[:date] > Date.tomorrow + 6.days)||(@reservation[:date].past?)
-      redirect_to action: 'index', notice: "Your reservation date is out of 7 day range."
+    if (@reservation[:startdate] > Date.tomorrow + 6.days)||(@reservation[:startdate].past?)
+      redirect_to action: 'index', notice: "Your reservations date is out of 7 day range."
     else
-      Reservation.where(user: current_user.id).each do |reserved|
-        if (reserved[:date].future?)||(reserved[:date].present? && reserved[:time].future?)
-          redirect_to action: 'index', notice: "You already have a reservation."
-          return
+      if (@reservation[:endtime] <= @reservation[:starttime] + 2.hours)&&(@reservation[:endtime] > @reservation[:starttime])
+        Reservation.where(user: current_user.id).each do |reserved|
+          if (reserved[:startdate].future?)||(reserved[:startdate].present? && reserved[:starttime].future?)
+            redirect_to action: 'index', notice: "You already have a reservations."
+            return
+          end
         end
-      end
-      @reservation=Reservation.new(reservation_params)
-      if @reservation.save
-        redirect_to action: 'index', notice: "User created successfully."
+        @reservation=Reservation.new(reservation_params)
+        if @reservation.save
+          redirect_to action: 'index', notice: "User created successfully."
+        else
+          redirect_to action: 'index', notice: "Error creating user."
+        end
       else
-        redirect_to action: 'index', notice: "Error creating user."
+        redirect_to action: 'index', notice: "Your reservation time is not within the 2 hour range"
       end
+
     end
   end
 
 
   def destroy
-    if (@reservation[:date].future?)||(@reservation[:date].present? && @reservation[:time].future?)
+    if (@reservation[:startdate].future?)||(@reservation[:startdate].present? && @reservation[:endtime].future?)
       @reservation.destroy
       redirect_to action: 'index', notice:'Successfully Deleted'
     else
@@ -38,6 +43,6 @@ class ReservationController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:user_id,:room_id,:date,:time)
+    params.require(:reservations).permit(:user_id, :room_id, :date, :time)
   end
 end
