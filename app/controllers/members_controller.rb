@@ -1,21 +1,13 @@
 class MembersController < ApplicationController
   before_action :set_member, only: [:destroy, :show]
 
-  /*def indexMem
-
-    @members = Member.where.not(is_admin: true)
-  end
-
-  def indexAdmin
-
-    @members = Member.where(is_admin: true)
-    #@user=User.all.order('created_at DESC')
-  end*/
-
   def index
     @members = Member.all
   end
 
+  def home
+
+  end
   def show
     @booking_history = Reservation.where(member: params[:id])
   end
@@ -45,9 +37,6 @@ class MembersController < ApplicationController
 
   private
   # Use callbacks to share common setup or constraints between actions.
-  def set_member
-    @member = Member.find(params[:id])
-  end
 
   def member_params
     params.require(:member).permit(:name,:email,:password,:is_admin,:is_preconfigured)

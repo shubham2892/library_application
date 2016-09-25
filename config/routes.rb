@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resources :rooms
   resources :members
   resources :reservations
-  root 'members#index'
+  root 'members#home'
 
 end
