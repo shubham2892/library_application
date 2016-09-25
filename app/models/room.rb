@@ -1,4 +1,6 @@
 class Room < ApplicationRecord
+  after_initialize :set_defaults, unless: :persisted?
+
   validates_inclusion_of :building, in: Choices['building']
   validates_inclusion_of :size, in: Choices['size']
   validates_inclusion_of :status, in: Choices['status']
@@ -6,4 +8,8 @@ class Room < ApplicationRecord
 
   has_many :reservations
   belongs_to :members
+
+  def set_defaults
+    self.status = 'available'
+  end
 end
