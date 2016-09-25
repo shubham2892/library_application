@@ -1,0 +1,27 @@
+<p id="notice"><%= params[:notice] %></p>
+
+<h1>Reservation History</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Room</th>
+    <th>Date</th>
+    <th>Start Time</th>
+    <th>End Time</th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @reservations.each do |reservation| %>
+      <tr>
+        <td> <%= reservation.room_id %> </td>
+        <td><%= reservation.startdate %> </td>
+        <td><%= reservation.starttime %> </td>
+        <td><%= reservation.endtime %> </td>
+        <td><%= link_to 'Destroy', reservation, method: :delete, data: {confirm: 'Are you sure?'} %> </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

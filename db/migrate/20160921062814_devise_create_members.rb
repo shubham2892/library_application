@@ -24,6 +24,7 @@ class DeviseCreateMembers < ActiveRecord::Migration[5.0]
 
       ##For Admin Control
       t.boolean :is_admin, default: false
+      t.boolean :is_preconfigured, default: false
 
       ## Confirmable
       # t.string   :confirmation_token
