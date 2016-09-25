@@ -1,0 +1,42 @@
+<h1>Room</h1>
+
+
+<script type="text/javascript" charset="utf-8">
+
+  $().ready(function(){
+    $('#search_link').click(function(){
+      $(this).attr('href', $(this).attr('href') + '?building=' + $( "#building" ).val() + '&size=' + $( "#size" ).val());
+    });
+  });
+
+</script>
+
+
+
+<table>
+  <thead>
+  <tr>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <%= select_tag 'building', options_for_select([['D.H. Hill', 'D.H. Hill'], ['James. B. Hunt', 'James. B. Hunt']]),
+                 {prompt: 'Select Building'} %>
+
+  <%= select_tag 'size', options_for_select([['small', 'small'], ['medium', 'medium'], ['large', 'large']]),
+                 {prompt: 'Select Size'} %>
+  <%= link_to "Search", {action: "index"},:id=> "search_link"%>
+
+  <br/>
+
+
+  <tbody>
+  <% @rooms.each do |room| %>
+      <tr>
+        <td> <%= link_to room.room_number, room_path(room) %> </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
