@@ -1,8 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
 Things you may want to cover:
 
 * Ruby version : 2.3.1
@@ -12,15 +9,13 @@ Things you may want to cover:
 * Configuration
 
 * Database creation
-    - create a file database.yml in config folder. Use database.yml.sample as reference. 
-
+    - Update the database.yml, enter the password 
+    
 * Database initialization
     - create a database "library_application_development" before running migrations
+    - create a database "library_application_test" before running test
 
 * How to run the test suite
+    - testbin/rails test test/models/room_test.rb
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
