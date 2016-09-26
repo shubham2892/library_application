@@ -19,3 +19,6 @@ Things you may want to cover:
     - testbin/rails test test/models/room_test.rb
 
 
+Preconfigured User:
+email: shubham2892@gmail.com
+pass: 123456
