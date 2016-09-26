@@ -1,12 +1,15 @@
 class MembersController < ApplicationController
   before_action :set_member, only: [:destroy, :show]
-  
+
   def index
     @members = Member.all
   end
 
+  def home
+
+  end
   def show
-    @booking_history = Reservation.where(member: params[:id])
+    @booking_history = Reservation.where(member_id: params[:id])
   end
 
   def destroy
@@ -22,7 +25,7 @@ class MembersController < ApplicationController
     @member=Member.new
   end
 
-  def create
+  def create_admin
     @member=Member.new(member_params)
     if @member.save
       redirect_to action: 'index', notice: "User created successfully."
@@ -34,8 +37,9 @@ class MembersController < ApplicationController
 
   private
   # Use callbacks to share common setup or constraints between actions.
+
   def set_member
-    @member = Member.find(params[:id])
+    @member = Member.find(params[:id] )
   end
 
   def member_params

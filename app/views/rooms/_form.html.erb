@@ -1,20 +1,39 @@
-<%= form_for @room do |f| %>
+<% if member_signed_in? %>
 
-    <% if room.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(room.errors.count, "error") %> prohibited this room from being saved:</h2>
 
-          <ul>
-            <% room.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
+    <% if current_member.is_admin %>
+
+
+
+
+        <%= form_for @room do |f| %>
+
+            <% if room.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(room.errors.count, "error") %> prohibited this room from being saved:</h2>
+
+                  <ul>
+                    <% room.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                    <% end %>
+                  </ul>
+                </div>
             <% end %>
-          </ul>
-        </div>
+
+
+            Room Number: <%= f.text_field :room_number %><br/>
+            Building: <%= f.select :building, [['D.H. Hill', 'D.H. Hill'], ['James. B. Hunt', 'James. B. Hunt']] %>
+            <br/>
+            Size: <%= f.select :size, [['small', 'small'], ['medium', 'medium'], ['large', 'large']] %> <br/>
+            <%= f.submit "Create" %>
+
+        <% end %>
+
+    <% else %>
+        You need to be admin to create and update rooms.
+
     <% end %>
+<% else %>
+    You need to signed and admin to create and update rooms.
 
-
-    Room Number: <%= f.text_field :room_number %><br/>
-    Building: <%= f.select :building, [['D.H. Hill', 'D.H. Hill'], ['James. B. Hunt', 'James. B. Hunt']] %> <br/>
-    Size: <%= f.select :size, [['small', 'small'], ['medium', 'medium'],['large','large']] %> <br/>
-    <%= f.submit "Create" %>
 <% end %>

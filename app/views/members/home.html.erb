@@ -1,0 +1,20 @@
+<h1>Library Booking App</h1>
+<% if member_signed_in? %>
+
+    <%= link_to "Edit your account", edit_member_registration_path %><br>
+    <%= link_to "View Rooms", rooms_path %><br>
+    <%= link_to "View My Reservations", reservations_path %><br>
+    <%= link_to "Book a room", new_reservation_path %><br>
+
+    <% if current_member.is_admin %>
+        <%= link_to "View Members/Admin", members_path %><br>
+        <%= link_to "Create Room", new_room_path %><br>
+        <%= link_to "Create Admin", '/members/new' %><br>
+
+    <% end %>
+
+<% else %>
+
+    <p>Need to sign in to access application</p><br>
+<% end %>
+

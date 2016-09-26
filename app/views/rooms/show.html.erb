@@ -1,5 +1,3 @@
-
-
 <H2>Booking History</H2>
 <table>
   <thead>
@@ -11,17 +9,20 @@
   <tbody>
   <% @booking_history.each do |booking| %>
       <tr>
-        <td> <%= booking.user %> </td>
-        <td><%= booking.timestamps %> </td>
+        <td><%= booking.starttime.to_s(:long) %> </td>
+        <% if booking.starttime<Time.now < booking.starttime
+             +2.hour %>
+            Current Booking
+        <% end %>
       </tr>
   <% end %>
   </tbody>
 </table>
 
+<br/>
 
 Room No: <%= @room.room_number %> <br/>
-Building: <%= @room.building %> <br />
+Building: <%= @room.building %> <br/>
 Size: <%= @room.size %> <br/>
-Status: <%= @room.status %> <br />
 
 <%= link_to 'Delete the room', member_path(@room), method: :delete, data: {confirm: 'Are you sure?'} %>

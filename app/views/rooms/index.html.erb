@@ -3,9 +3,10 @@
 
 <script type="text/javascript" charset="utf-8">
 
-  $().ready(function(){
-    $('#search_link').click(function(){
-      $(this).attr('href', $(this).attr('href') + '?building=' + $( "#building" ).val() + '&size=' + $( "#size" ).val());
+  $().ready(function () {
+    $('#search_link').click(function () {
+      $(this).attr('href', $(this).attr('href') + '?building=' + $("#building").val() + '&room_number=' + $("#room_number").val() +
+          '&size=' + $("#size").val()) ;
     });
   });
 
@@ -25,7 +26,9 @@
 
   <%= select_tag 'size', options_for_select([['small', 'small'], ['medium', 'medium'], ['large', 'large']]),
                  {prompt: 'Select Size'} %>
-  <%= link_to "Search", {action: "index"},:id=> "search_link"%>
+  Room Number: <%= text_field_tag 'room_number' %>
+
+  <%= link_to "Search", {action: "index"}, :id => "search_link" %>
 
   <br/>
 
@@ -34,6 +37,13 @@
   <% @rooms.each do |room| %>
       <tr>
         <td> <%= link_to room.room_number, room_path(room) %> </td>
+        <% if current_member.is_admin %>
+
+            <td><%= link_to 'Edit', edit_room_path(room)%> </td>
+            <td><%= link_to 'Destroy', room, method: :delete, data: {confirm: 'Are you sure?'} %> </td>
+
+        <% end %>
+
       </tr>
   <% end %>
   </tbody>

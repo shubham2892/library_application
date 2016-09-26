@@ -3,13 +3,15 @@ class RoomsController < ApplicationController
 
   def index
     @rooms = Room.all
-    @rooms = @rooms.where(size: params[:size]) if params.has_key?(:size) && !params[:size].empty?
-    @rooms = @rooms.where(building: params[:building]) if params.has_key?(:building) && !params[:size].empty?
+
+    @rooms = @rooms.where(size: params[:size]) if (params.has_key?(:size) && !params[:size].empty?)
+    @rooms = @rooms.where(building: params[:building]) if (params.has_key?(:building) && !params[:building].empty?)
+    @rooms = @rooms.where(room_number: params[:room_number]) if (params.has_key?(:room_number) && !params[:room_number].empty?)
 
   end
 
   def show
-    @booking_history = Reservation.where(room: params[:id])
+    @booking_history = Reservation.where(room_id: params[:id], member_id: current_member.id)
   end
 
 

@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>LibraryApplication</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>LibraryApplication</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>"><%= value %></div>
-    <% end %>
-    <%= yield %>
-  </body>
+<body>
+
+<% if member_signed_in? %>
+    <%= link_to "Sign out", destroy_member_session_path, :method => :delete %><br>
+<% else %>
+
+    <%= link_to "Sign in", new_member_session_path %><br>
+    <%= link_to "Sign up", new_member_registration_path %><br>
+<% end %>
+
+
+<% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+<%= yield %>
+</body>
 </html>

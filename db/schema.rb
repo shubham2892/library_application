@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20160925163414) do
     t.string   "last_sign_in_ip"
     t.string   "name"
     t.boolean  "is_admin",               default: false
+    t.boolean  "is_preconfigured",       default: false
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.index ["email"], name: "index_members_on_email", unique: true, using: :btree
@@ -32,12 +33,15 @@ ActiveRecord::Schema.define(version: 20160925163414) do
   end
 
   create_table "reservations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "rooms_id"
-    t.integer  "members_id"
+    t.integer  "room_id"
+    t.integer  "member_id"
+    t.date     "startdate"
+    t.time     "starttime"
+    t.time     "endtime"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["members_id"], name: "index_reservations_on_members_id", using: :btree
-    t.index ["rooms_id"], name: "index_reservations_on_rooms_id", using: :btree
+    t.index ["member_id"], name: "index_reservations_on_member_id", using: :btree
+    t.index ["room_id"], name: "index_reservations_on_room_id", using: :btree
   end
 
   create_table "rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -49,6 +53,6 @@ ActiveRecord::Schema.define(version: 20160925163414) do
     t.datetime "updated_at",  null: false
   end
 
-  add_foreign_key "reservations", "members", column: "members_id"
-  add_foreign_key "reservations", "rooms", column: "rooms_id"
+  add_foreign_key "reservations", "members"
+  add_foreign_key "reservations", "rooms"
 end
