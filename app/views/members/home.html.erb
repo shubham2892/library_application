@@ -1,14 +1,16 @@
 <h1>Library Booking App</h1>
 <% if member_signed_in? %>
 
+    <%= link_to "View Profile", member_path(current_member) %><br>
     <%= link_to "Edit your account", edit_member_registration_path %><br>
     <%= link_to "View Rooms", rooms_path %><br>
     <%= link_to "View My Reservations", reservations_path %><br>
 
     <% if current_member.is_admin %>
-        <%= link_to "View Members", edit_member_registration_path %><br>
-        <%= link_to "Create Room", edit_member_registration_path %><br>
-        <%= link_to "Edit Room", edit_member_registration_path %><br>
+        <%= link_to "View Members", members_path %><br>
+        <%= link_to "Create Adim", new_member_path %><br>
+        <%= link_to "Create Room", new_room_path %><br>
+
     <% end %>
 
 <% else %>

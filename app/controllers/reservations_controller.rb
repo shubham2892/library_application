@@ -4,7 +4,13 @@ class ReservationsController < ApplicationController
   end
 
   def index
-    @reservations = Reservation.where(user: current_user.id)
+    @reservations = Reservation.all
+  end
+  def roomhistory
+        @roomhistory = Reservation.where(room_id: params[:id])
+  end
+  def memberhistory
+        @memberhistory = Reservation.where(user_id: params[:id])
   end
   def create
     if (@reservation[:startdate] > Date.tomorrow + 6.days)||(@reservation[:startdate].past?)

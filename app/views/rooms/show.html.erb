@@ -24,4 +24,5 @@ Building: <%= @room.building %> <br />
 Size: <%= @room.size %> <br/>
 Status: <%= @room.status %> <br />
 
+<%= link_to "Edit Room", edit_room_path(@room) %><br>
 <%= link_to 'Delete the room', member_path(@room), method: :delete, data: {confirm: 'Are you sure?'} %>

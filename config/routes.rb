@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :rooms
   resources :members
   resources :reservations
+  get 'roomhistory', to: 'reservations#roomhistory',  via: :get, as: :room_history
+  get 'memberhistory', to: 'reservations#memberhistory', via: :get, as: :member_history
   root 'members#home'
 
 end
