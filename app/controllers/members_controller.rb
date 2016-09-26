@@ -13,6 +13,9 @@ class MembersController < ApplicationController
   end
 
   def destroy
+    if @member.id == current_user.id
+      redirect_to action: 'index', notice:'Cannot delete yourself. Sorry bruh!'
+    end
     if @member[:is_preconfigured]
       redirect_to action: 'index', notice:'Cannot delete preconfigured users'
     else
