@@ -11,4 +11,6 @@ class ReservationControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test ""
+
 end

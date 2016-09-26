@@ -12,7 +12,7 @@
 
   <% if member_signed_in? %>
 
-      <%= link_to "Sign out", destroy_member_session_path %><br>
+      <%= link_to "Sign out", destroy_member_session_path, :method => :delete %><br>
   <% else %>
 
       <%= link_to "Sign in", new_member_session_path %><br>

@@ -1,22 +1,16 @@
-Member Name: <%= @member.name %>
-Member Email: <%= @member.email %>
+<p id="notice"><%= notice %></p>
 
-<H2>Booking History</H2>
-<table>
-  <thead>
-  <tr>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
+<p>
+  <strong>Email:</strong>
+  <%= @member.email %>
+</p>
 
-  <tbody>
-  <% @booking_history.each do |booking| %>
-      <tr>
-        <td> <%= booking.room %> </td>
-        <td><%= booking.timestamps %> </td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
+<p>
+  <strong>Name:</strong>
+  <%= @member.name %>
+</p>
 
-<%= link_to 'Delete the User', member_path(@member), method: :delete, data: {confirm: 'Are you sure?'} %>
+<p>
+  <strong>Admin:</strong>
+  <%= @member.is_admin %>
+</p>
