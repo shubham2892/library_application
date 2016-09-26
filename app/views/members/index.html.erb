@@ -19,8 +19,8 @@
         <td> <%= member.name %> </td>
         <td><%= member.email %> </td>
         <td><%= member.is_admin %> </td>
-        <td><%= link_to 'History', member, method: :delete, data: {confirm: 'Are you sure?'} %> </td>
-        <% if (!member.is_preconfigured && !current_member?(member)) %>
+        <td><%= link_to 'History', member_history_path %> </td>
+        <% if (!member.is_preconfigured && current_member != member) %>
             <td><%= link_to 'Destroy', member, method: :delete, data: {confirm: 'Are you sure?'} %> </td>
         <% end %>
 

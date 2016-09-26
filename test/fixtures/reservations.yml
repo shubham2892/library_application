@@ -3,6 +3,9 @@
 one:
   room: one
   user: one
+  startdate: 2016-09-27
+  starttime: 11:30:00
+  endtime: 01:30:00
 
 two:
   room: two

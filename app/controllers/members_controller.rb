@@ -11,9 +11,7 @@ class MembersController < ApplicationController
   def show
 
   end
-  def showbooking
-    @booking_history = Reservation.where(member: params[:id])
-  end
+
 
   def destroy
     if @member[:is_preconfigured]
