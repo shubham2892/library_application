@@ -40,10 +40,13 @@ class RoomsController < ApplicationController
 
 
   def edit
+
     @room = Room.find(params[:id])
   end
 
   def destroy
+    Reservation.where(room_id: params[:id]).destroy_all
+
     @room.destroy
     redirect_to action: 'index', notice: 'Successfully Deleted'
 
