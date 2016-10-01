@@ -20,5 +20,7 @@ Things you may want to cover:
 
 
 Preconfigured Admin:
-email: admin@admin.edu
-pass: admin1
+email: ayu@ncsu.edu
+pass: 123456
+
+Please do not change the password of the admin account. If changed, please ensure that you have informed at shubham2892@gmail.com
