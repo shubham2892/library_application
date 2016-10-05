@@ -18,7 +18,8 @@
       <%= f.text_field :email %><br>
       <%= f.label :password %>
       <%= f.password_field :password %>
-      <%= f.hidden_field :is_admin, :value => '1' %>
+      <%= f.label :is_admin, "Is Admin?" %><br>
+      <%= f.check_box :is_admin %>
       <%= f.hidden_field :is_preconfigured, :value => '0' %>
     </div>
     <div class="actions">

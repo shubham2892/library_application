@@ -10,3 +10,4 @@ admin1 = Member.create :name => "admin", :email => 'admin@mail.com', :password =
 user1 = Member.create :name => "user1", :email => 'user1@mail.com', :password => "user1password", :id => 1
 user2 = Member.create :name => "user2", :email => 'user2@mail.com', :password => "user2password", :id => 2
 user3 = Member.create :name => "user3", :email => 'user3@mail.com', :password => "user3password", :id => 3
+ayu = Member.create :name => "ayu", :email => 'ayu@ncsu.edu', :password => "123456", :is_admin => true, :is_preconfigured => true, :id => 4

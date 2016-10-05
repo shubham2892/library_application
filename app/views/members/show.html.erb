@@ -1,5 +1,5 @@
-Member Name: <%= @member.name %>
-Member Email: <%= @member.email %>
+Member Name: <%= @member.name %><br>
+Member Email: <%= @member.email %><br>
 
 <H2>Booking History</H2>
 <table>
@@ -17,6 +17,7 @@ Member Email: <%= @member.email %>
         <td> <%= booking.room.room_number %> </td>
         <td><%= booking.starttime.to_s(:long) %> </td>
         <td><%= booking.member.email %> </td>
+        <td><%= link_to 'Destroy', booking, method: :delete, data: {confirm: 'Are you sure?'} %> </td>
       </tr>
   <% end %>
   </tbody>
