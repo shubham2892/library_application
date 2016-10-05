@@ -19,6 +19,7 @@ class MembersController < ApplicationController
     if @member[:is_preconfigured]
       redirect_to action: 'index', notice:'Cannot delete preconfigured users'
     else
+      Reservation.where(member_id: params[:id]).destroy_all
       @member.destroy
       redirect_to action: 'index', notice:'Successfully Deleted'
     end

@@ -7,9 +7,9 @@
     <%= link_to "Book a room", new_reservation_path %><br>
 
     <% if current_member.is_admin %>
-        <%= link_to "View Members/Admin", members_path %><br>
+        <%= link_to "View Admin/Members", members_path %><br>
         <%= link_to "Create Room", new_room_path %><br>
-        <%= link_to "Create Admin", '/members/new' %><br>
+        <%= link_to "Create Admin/Member", '/members/new' %><br>
 
     <% end %>
 
