@@ -22,4 +22,11 @@ class ReservationControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to reservations_path(assigns(:reservation))
   end
 
+  test "should destroy reservation" do
+    assert_difference('Reservation.count', -1) do
+      delete :destroy, id: @reservation
+    end
+    assert_redirected_to reservations_path
+  end
+
 end
