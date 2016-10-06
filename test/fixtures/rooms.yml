@@ -2,11 +2,13 @@
 
 one:
   room_number: 1
-  building:
-  size:
+  building: 'D.H. Hill'
+  size: 'medium'
 
 
 
 
 two:
-  room_number: 6
+  room_number: 2
+  building: 'James. B. Hunt'
+  size: 'medium'
