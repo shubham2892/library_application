@@ -2,17 +2,21 @@
 <table>
   <thead>
   <tr>
-    <th colspan="3"></th>
+    <th>Date</th>
+    <th>Start Time</th>
+    <th>End Time</th>
+    <th colspan="1"></th>
   </tr>
   </thead>
 
   <tbody>
   <% @booking_history.each do |booking| %>
       <tr>
-        <td><%= booking.starttime.to_s(:long) %> </td>
-        <% if booking.starttime<Time.now < booking.starttime
-             +2.hour %>
-            Current Booking
+        <td><%= booking.startdate.to_s(:long) %> </td>
+        <td><%= booking.starttime.strftime("%H:%M:%S") %> </td>
+        <td><%= booking.endtime.strftime("%H:%M:%S") %> </td>
+        <% if (booking.startdate>=Time.now)&&(Time.now < (booking.starttime+2.hour)) %>
+            <td>Current Booking</td>
         <% end %>
       </tr>
   <% end %>
@@ -20,7 +24,7 @@
 </table>
 
 <br/>
-
+<H2>Room Info</H2>
 Room No: <%= @room.room_number %> <br/>
 Building: <%= @room.building %> <br/>
 Size: <%= @room.size %> <br/>
