@@ -23,7 +23,7 @@ class ReservationsController < ApplicationController
     else
       Reservation.where(member_id: current_member.id).each do |reserved|
 
-        if (reserved[:startdate].future?)||(reserved[:startdate].present? && reserved[:starttime].future?)
+        if (reserved[:startdate].future? && current_member.is_admin=false)||(reserved[:startdate].present? && reserved[:starttime].future? && current_member.is_admin=false)
           redirect_to action: 'index', notice: "You already have a reservations."
           return
         end
