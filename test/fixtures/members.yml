@@ -2,18 +2,18 @@
 
 one:
 
-  email: test1@test.com
-  name: test1
-  encrypted_password: password
+  email: 'test1@test.com'
+  name: 'test1'
+  encrypted_password: 'password'
   is_admin: false
   is_preconfigured: false
   created_at: "2000:5:5 10:10:10"
   updated_at: "2000:5:5 10:10:10"
 
 two:
-  email: test2@test.com
-  name: MyString
-  encrypted_password: MyString
+  email: 'test2@test.com'
+  name: 'MyString'
+  encrypted_password: 'MyString'
   is_admin: false
   is_preconfigured: false
   created_at: "2000:5:5 10:10:10"

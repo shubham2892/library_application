@@ -2,6 +2,9 @@
 
 one:
   room_number: 1
+  building:
+  size:
+
 
 
 
