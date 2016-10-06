@@ -15,8 +15,8 @@
         <td><%= booking.startdate.to_s(:long) %> </td>
         <td><%= booking.starttime.strftime("%H:%M:%S") %> </td>
         <td><%= booking.endtime.strftime("%H:%M:%S") %> </td>
-        <% if (booking.startdate>=Time.now)&&(Time.now < (booking.starttime+2.hour)) %>
-            <td>Current Booking</td>
+        <% if ((booking.startdate>=Time.now)&&(Time.now < (booking.endtime))) %>
+            <td><%= 'Current Booking'%></td>
         <% end %>
       </tr>
   <% end %>

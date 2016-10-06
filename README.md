@@ -24,3 +24,7 @@ email: ayu@ncsu.edu
 pass: 123456
 
 Please do not change the password of the admin account. If changed, please ensure that you have informed at shubham2892@gmail.com
+
+Notes: 
+* Admin and members sign in at the same sign in page. Admins are shown more options than members. 
+* If you delete a member all of their corresponding reservations are also deleted. Same thing can be said for rooms and their corresponding reservations. 
